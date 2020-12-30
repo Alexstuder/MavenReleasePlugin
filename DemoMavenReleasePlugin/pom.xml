@@ -19,10 +19,51 @@
     </properties>
 
     <scm>
-        <connection>scm: git@github.com:Alexstuder/MavenReleasePlugin.git</connection>
-        <developerConnection>scm: git@github.com:Alexstuder/MavenReleasePlugin.git</developerConnection>
+        <connection>scm:git:git@github.com:Alexstuder/MavenReleasePlugin.git</connection>
+        <developerConnection>scm:git:git@github.com:Alexstuder/MavenReleasePlugin.git</developerConnection>
         <url>https://github.com/Alexstuder/MavenReleasePlugin</url>
         <tag>@{project.version}</tag>
     </scm>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            <mainClass>ch.studer.DemoMavenReleasePlugin</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.2</version>
+                <configuration>
+                    <goals>pre-integration-test</goals>
+                    <preparationGoals>package</preparationGoals>
+                    <allowTimestampedSnaphsots>true</allowTimestampedSnaphsots>
+                    <tagNameFormat>@{project.version}</tagNameFormat>
+                    <remoteTagging>false</remoteTagging>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
