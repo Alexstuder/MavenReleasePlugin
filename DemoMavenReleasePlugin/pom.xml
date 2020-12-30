@@ -4,7 +4,7 @@
 
     <groupId>ch.studer</groupId>
     <artifactId>DemoMavenReleasePlugin</artifactId>
-    <version>0.5</version>
+    <version>0.6-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>13</maven.compiler.source>
