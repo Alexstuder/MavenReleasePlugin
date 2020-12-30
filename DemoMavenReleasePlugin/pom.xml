@@ -4,7 +4,7 @@
 
     <groupId>ch.studer</groupId>
     <artifactId>DemoMavenReleasePlugin</artifactId>
-    <version>0.1</version>
+    <version>0.2-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>13</maven.compiler.source>
@@ -20,7 +20,7 @@
         <connection>scm:git:git@github.com:Alexstuder/MavenReleasePlugin.git</connection>
         <developerConnection>scm:git:git@github.com:Alexstuder/MavenReleasePlugin.git</developerConnection>
         <url>https://github.com/Alexstuder/MavenReleasePlugin</url>
-        <tag>Tag 0.1</tag>
+        <tag>@{project.version}</tag>
     </scm>
     <build>
         <plugins>
