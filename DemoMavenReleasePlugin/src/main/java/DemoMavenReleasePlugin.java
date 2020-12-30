@@ -3,6 +3,7 @@ public class DemoMavenReleasePlugin {
 
         System.out.println("Hello Explorer");
         System.out.println();
+        System.out.println();
         System.out.println("This progrm is running version : "+
                 DemoMavenReleasePlugin.class.getPackage().getImplementationVersion());
 
